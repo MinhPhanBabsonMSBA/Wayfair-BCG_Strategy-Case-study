@@ -112,6 +112,6 @@ Wayfair engaged in an in-depth analysis to investigate how delivery performance,
 ## Appendix
 
 - **Data File:** `wayfair.csv`
-- **Notebook Reference:** `Wayfair Analytics Report.ipynb`
+- **Notebook Reference:** `Wayfair Analytics Report.pdf`
 - **Tools Used:** Python (Pandas, Seaborn, Matplotlib, Scikit-learn, StatsModels)
 - **Visuals:** Cluster maps, A/B comparisons, return rate bar charts
