@@ -1,5 +1,15 @@
 ![](https://github.com/MinhPhanBabsonMSBA/Wayfair-Case-study/blob/main/wayfair%20logo.png)
 # Wayfair Return Optimization & Customer Segmentation Study
+
+## Executive Summary  
+Wayfair engaged in an in-depth analysis to investigate how delivery performance, guarantee visibility, and customer behaviors influence product returns and revenue outcomes. Using December 2016 order-level data comprising over 123,000 observations, the analysis identified operational inefficiencies and customer segments that disproportionately impact profitability.
+
+### Key Takeaways:
+- **Guarantee visibility** reduces returns and raises average order value in targeted product categories
+- **Delivery delays** significantly increase return rates, especially for large-parcel goods
+- **Customer behavior differs by platform (desktop vs. mobile)**, influencing guarantee effectiveness
+- **Segmentation via clustering** revealed four distinct customer profiles with unique value and return risk profiles
+---
 ## Business Questions
 
 1. **Does showing a product guarantee reduce return rates?**  
@@ -26,17 +36,6 @@
 
 ---
 
-## Executive Summary  
-Wayfair engaged in an in-depth analysis to investigate how delivery performance, guarantee visibility, and customer behaviors influence product returns and revenue outcomes. Using December 2016 order-level data comprising over 123,000 observations, the analysis identified operational inefficiencies and customer segments that disproportionately impact profitability.
-
-### Key Takeaways:
-- **Guarantee visibility** reduces returns and raises average order value in targeted product categories
-- **Delivery delays** significantly increase return rates, especially for large-parcel goods
-- **Customer behavior differs by platform (desktop vs. mobile)**, influencing guarantee effectiveness
-- **Segmentation via clustering** revealed four distinct customer profiles with unique value and return risk profiles
-
----
-
 ## Analytical Approach & Methodology
 
 - **Data Source:** December 2016 order-level file, 123,542 entries
@@ -48,7 +47,7 @@ Wayfair engaged in an in-depth analysis to investigate how delivery performance,
   - Z-test for proportions (Guarantee impact)
   - Chi-square tests (Delivery × Returns)
   - Correlation analysis (Delay vs. Returns)
-  - KMeans clustering (with PCA)
+  - K-Means clustering (with PCA)
 
 ---
 
