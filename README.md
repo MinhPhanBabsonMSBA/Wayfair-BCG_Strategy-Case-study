@@ -1,31 +1,118 @@
-# Wayfair Case Study 
+# Wayfair Return Optimization & Customer Segmentation Study
+---
+## Business Questions
 
+1. **Does showing a product guarantee reduce return rates?**  
+   ✔️ Yes — most notably for **Bedding** and **Desktop users**. Guarantees are associated with reduced returns and higher AOV.
 
-## 1. Introduction
-<a href=http://www.wayfair.com/> Welcome to Wayfair Case Study </a>
+2. **How does late delivery impact return behavior?**  
+   ✔️ Late delivery is **strongly correlated** with return behavior (r = +0.63), especially among large parcel items.
 
- Wayfair ran a large-scale A/B test during the 2016 holiday season to see if a "Ships in Time" guarantee, shown to one in three customers, would influence customer shopping behavior, aiming to determine if the benefits justified the costs before committing to future campaigns.  This report is divided into two key sections: Exploratory Data Analysis (EDA) to understand the dataset and Campaign Effectiveness Analysis to understand how the campaign impacts shopping behavior. We assess campaign success by analyzing purchase, return, and cancellation rates across product categories to capture the complexity of customer behavior. 
+3. **Are desktop and mobile users influenced differently by guarantees?**  
+   ✔️ Yes — **Desktop users** benefit from guarantees; **mobile users** show mixed responses.
 
-## 2.	Explanatory Data Analysis
-This Exploratory Data Analysis (EDA) aims to visualize and understand customer behavior across different user types and product categories using the Level of Detail to dive into the dataset. By analyzing the interactions between these two key variables—user type and product category—we aim to uncover patterns in purchasing behavior that may provide insights into how Wayfair’s "Ships in Time" guarantee influenced customer decisions and how the ordering process works (individual or set product) and if the data is well organized.
+4. **Which product categories benefit most from guarantee visibility?**  
+   ✔️ Bedding showed the clearest return reduction; Lighting had a moderate effect; Tabletop and Rugs showed no benefit.
 
+5. **What are the most actionable customer segments?**  
+   ✔️ Four segments identified:
+   - **Premium Buyers (10%)**: high AOV, low returns — loyalty focus
+   - **Value Shoppers (56%)**: low spend, no returns — frequency growth
+   - **High-Return Customers (5%)**: high risk — UX and education needed
+   - **Moderate Shoppers (29%)**: convertible via targeting and delivery management
 
-| Dashboard Link|
-| ------------- |
-|[What is the level of detail in the dataset and what can we learn?](https://public.tableau.com/app/profile/minh.phan7291/viz/WayfairABtesting/Sheet1?publish=yes/>) |
+6. **Where should Wayfair invest to reduce returns and grow profitably?**  
+   ✔️ Invest in targeted guarantees, improved delivery SLAs, and platform-optimized UX messaging.
 
+---
 
-## 3.	Campaign Effectiveness Analysis
+## Executive Summary  
+Wayfair engaged in an in-depth analysis to investigate how delivery performance, guarantee visibility, and customer behaviors influence product returns and revenue outcomes. Using December 2016 order-level data comprising over 123,000 observations, the analysis identified operational inefficiencies and customer segments that disproportionately impact profitability.
 
-| Dashboard Links|
-| --------------------------------------------------------------------------------- | 
-|[Did certain product categories perform better in terms of sales or lower return rates ?](https://public.tableau.com/views/WayfairABtesting1/Sheet1?:language=en-US&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)|
-|[Was there a significant difference in the cancellation (Cancelled) and return (Returned_Qty) rates between orders with the guarantee and those without ?](https://public.tableau.com/app/profile/minh.phan7291/viz/WayfairABtestq1/Sheet5)        |
+### Key Takeaways:
+- **Guarantee visibility** reduces returns and raises average order value in targeted product categories
+- **Delivery delays** significantly increase return rates, especially for large-parcel goods
+- **Customer behavior differs by platform (desktop vs. mobile)**, influencing guarantee effectiveness
+- **Segmentation via clustering** revealed four distinct customer profiles with unique value and return risk profiles
 
+---
 
-## 4.	Campaign Effectiveness Conclusions and Recommendations 
+## Analytical Approach & Methodology
 
-- Wayfair's "Ships in Time" guarantee influenced customer behavior variably across product categories.
-- It boosted purchases in categories like Mattresses, Small Electrics, and Kitchen items indicating that delivery speed may matter more for these products for the holiday season, it also led to higher return rates, suggesting unmet product or delivery expectations. 
-- The campaign's effect on cancellation and return rates was mixed; it helped reduce cancellations but did not significantly lower returns. 
-- To enhance future campaigns, Wayfair should target the guarantee on time-sensitive, high-demand categories, clarify guarantee terms, and tailor messaging to manage customer expectations effectively, thereby boosting satisfaction and operational efficiency.
+- **Data Source:** December 2016 order-level file, 123,542 entries
+- **Feature Engineering:**
+  - Created `Return_Rate`, `Delivery_Delay_Days`, `Is_Late`, `Order_Value_Numeric`, and binary flags for `Guarantee_Shown`
+  - Categorized delivery types and derived segments via `ShipClassName`
+- **Data Cleansing:** Minimal missing data (<3%); handled via listwise deletion or imputation
+- **Statistical Methods:**
+  - Z-test for proportions (Guarantee impact)
+  - Chi-square tests (Delivery × Returns)
+  - Correlation analysis (Delay vs. Returns)
+  - KMeans clustering (with PCA)
+
+---
+
+## Summary Insights
+
+### 1. Product Return Behavior
+- Return rates ranged from 3%–12%, highest in **Rugs**, **Seasonal Decor**, and **Bedding**
+- Products **with guarantees** had lower returns on average (5.83% vs. 5.90%)
+- A/B testing showed significant improvement in **Bedding** (−0.89pp, p < 0.05)
+
+### 2. Delivery Performance
+- **25% of orders** were delivered late
+- Delay positively correlated with return rates (r = +0.63)
+- Late deliveries most common in **Large Parcel** categories
+
+### 3. Platform Behavior Differences
+- **Desktop**: Guarantees improved performance across metrics (AOV ↑, Returns ↓)
+- **Mobile Web**: Higher AOV with guarantees but slight return increase; UI optimization required
+
+### 4. Customer Segmentation (via Clustering)
+
+| Segment              | % of Users | Avg Order Value | Return Rate | Description                         |
+|----------------------|------------|------------------|-------------|-------------------------------------|
+| Premium Buyers       | 10%        | $373.29          | 0.37%       | High spend, low return — loyalty target |
+| Value Shoppers       | 56%        | $91.38           | 0.00%       | Low spend, high volume — promote frequency |
+| High-Return Customers| 5%         | $137.99          | 90.04%      | High return risk — UX & policy intervention |
+| Moderate Shoppers    | 29%        | $125.50          | 25.50%      | Mid-tier segment — optimize delivery and info |
+
+---
+
+## Strategic Recommendations
+
+### 1. Strengthen Guarantee Strategy
+- Expand guarantee visibility for categories with proven benefit (e.g., Bedding)
+- Avoid blanket rollout to low-impact or high-risk categories without A/B validation
+- On mobile, experiment with **icon-based guarantees**, microcopy, and collapsible labels
+
+### 2. Improve Delivery SLA Adherence
+- Prioritize on-time fulfillment for Large Parcel items
+- Flag SKUs with history of late delivery and high returns
+- Collaborate with 3PLs to improve warehouse-to-door timelines
+
+### 3. Segment-Centric Campaigns
+- Build **loyalty journeys** for Premium Buyers
+- Launch **win-back or education flows** for High-Return Customers
+- Use size guides, augmented reality, and visuals to reduce uncertainty pre-purchase
+
+### 4. Platform-Specific Messaging
+- Optimize **guarantee presentation** for mobile interfaces
+- Run **platform-category A/B tests** to isolate impact pathways
+
+---
+
+## Potential Business Impact
+
+- Reduced return costs via fulfillment improvements and guarantee optimization
+- Higher revenue through targeted retention of Premium Buyers and upsell of Value Shoppers
+- Improved mobile performance by reducing information friction
+
+---
+
+## Appendix
+
+- **Data File:** `wayfair.csv`
+- **Notebook Reference:** `Wayfair Analytics Report.ipynb`
+- **Tools Used:** Python (Pandas, Seaborn, Matplotlib, Scikit-learn, StatsModels)
+- **Visuals:** Cluster maps, A/B comparisons, return rate bar charts
