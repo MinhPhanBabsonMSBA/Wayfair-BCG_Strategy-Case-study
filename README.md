@@ -1,9 +1,9 @@
 ![](https://github.com/MinhPhanBabsonMSBA/Wayfair-Case-study/blob/main/wayfair%20logo.png)
 
-# Wayfair Return Optimization & Customer Segmentation Strategy Implementation using BCG matrix 
+# Wayfair Return Optimization & Customer Segmentation Case Study 
 
 ## Executive Summary  
-Wayfair engaged in an in-depth analysis to investigate how delivery performance, guarantee visibility, and customer behaviors influence product returns and revenue outcomes. Using December 2016 order-level data comprising over 123,000 observations, the analysis identified operational inefficiencies and customer segments that disproportionately impact profitability. Predictive models and cost estimators were layered onto segmentation to generate a holistic strategy.
+Wayfair engaged in an in-depth analysis to investigate how delivery performance, guarantee visibility, and customer behaviors influence product returns and revenue outcomes. Using December 2016 order-level data comprising over 123,000 observations, the analysis identified operational inefficiencies and customer segments that disproportionately impact profitability. Predictive models and cost estimators were layered onto segmentation to generate a holistic strategy using the BCG matrix.
 
 ### Key Takeaways:
 - **Guarantee visibility** reduces returns and raises average order value in targeted product categories
