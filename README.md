@@ -1,4 +1,4 @@
-# Read the final report bellow
+(Read the final report bellow)
 
 ![](https://github.com/MinhPhanBabsonMSBA/Wayfair-Case-study/blob/main/wayfair%20logo.png)
 
