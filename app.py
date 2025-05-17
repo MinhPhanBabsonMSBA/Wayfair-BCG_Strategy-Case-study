@@ -20,7 +20,7 @@ st.set_page_config(
 
 
 # Sidebar Navigation
-st.image("/Users/minhphan/Downloads/Wayfair Project/images/wayfair_logo.png", use_column_width=True)
+st.image("wayfair_logo.png", use_container_width=True)
 st.sidebar.title("Wayfair Analytics Dashboard")
 selected_page = st.sidebar.selectbox(
     "Select Section",
